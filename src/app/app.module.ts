@@ -10,6 +10,9 @@ import { ProducentsComponent } from './producents/producents.component';
 import { DevicysListComponent } from './devices/devicys-list/devicys-list.component';
 import { ResultsComponent } from './devices/results/results.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { DeviceService } from './devices/device.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,9 +27,10 @@ import { MainPageComponent } from './main-page/main-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DeviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
