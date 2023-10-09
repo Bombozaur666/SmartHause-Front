@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpParams,
+  HttpEventType
+} from '@angular/common/http';
+import { DeviceService } from './devices/device.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +14,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SmartHouse';
+
+  constructor(private http: HttpClient, private dev: DeviceService) {}
 }
