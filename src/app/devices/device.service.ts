@@ -1,35 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Device } from '../models/device.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Subject} from 'rxjs';
  
 @Injectable()
 export class DeviceService {
-    private deviceList: Device[] = [];
-    public isFetching:boolean = false;
+    
+    error = new Subject<string>();
+
 
     constructor(private http: HttpClient) {};
     fetchDevicys() {
-        this.isFetching = true;
-        this.http.get<Device[]>(
+        return this.http.get<Device[]>(
             "http://localhost:8000/devices/list/"
         )
-        .subscribe(response => {
-            console.log(response);
-        } )
     }
-
-    setDevicys() {
-
-    }
-
-    getDevicys(): Device[] {
-        return this.deviceList.slice()
-
-    }
-
-
-
-
-
 }

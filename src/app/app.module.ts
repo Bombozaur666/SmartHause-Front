@@ -12,6 +12,7 @@ import { ResultsComponent } from './devices/results/results.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { DeviceService } from './devices/device.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DeviceItemComponent } from './devices/devicys-list/device-item/device-item.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProducentsComponent,
     DevicysListComponent,
     ResultsComponent,
-    MainPageComponent
+    MainPageComponent,
+    DeviceItemComponent,
   ],
   imports: [
     BrowserModule,
