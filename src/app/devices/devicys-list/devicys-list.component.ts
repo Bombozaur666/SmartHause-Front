@@ -24,11 +24,14 @@ export class DevicysListComponent implements OnInit, OnDestroy{
   onFetch() {
     this.isFetching=true;
     this.subscription = this.dev.fetchDevicys().subscribe(
-      next => {
-        this.devicesList = [];
-        this.devicesList = next;  
-      }, error => {
-        this.error=error.message;
+      {
+        next: data => {
+          this.devicesList = [];
+          this.devicesList = data;  
+        }, 
+        error: error => {
+          this.error=error.message;
+        }      
       }
     );
     this.isFetching = false;

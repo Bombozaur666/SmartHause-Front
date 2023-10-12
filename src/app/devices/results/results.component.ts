@@ -23,22 +23,26 @@ export class ResultsComponent implements OnInit, OnDestroy{
   constructor(private http: HttpClient, private res: ResultService) {}
 
   ngOnInit(): void {
+    this.onFetch();
 
   }
 
   ngOnDestroy(): void {
+    this.subscription.unsubscribe();
     
   }
 
-  onFetch(id: number, type:string): void {
+  onFetch(): void {
     this.isFetching = true;
-    this.subscription = this.res.fetchResults(this.device.id, this.device.type).subscribe(
-      response => {
-        
-      }, error => {
-
-      }      
-    )
+    this.subscription = this.res.fetchResults(this.device.id, this.device.type)
+      .subscribe({
+        next: data => {
+          ;
+        }, 
+        error: error => {
+          ;
+        }      
+      })
   };
 
 }
