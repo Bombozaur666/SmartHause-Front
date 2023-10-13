@@ -11,7 +11,6 @@ import { DeviceService } from '../../device.service';
 export class DeviceItemComponent implements OnInit{
 
   @Input() device: Device;
-  @Input() id: number;
 
   constructor (private http: HttpClient, private dec: DeviceService) {}
 
