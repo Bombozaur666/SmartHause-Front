@@ -6,12 +6,12 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
+      <div *ngIf="isFetching">Please wait.</div>
       <div *ngIf="!isFetching && !error">
         <app-device-item
         *ngFor="let deviceEl of devicesList" [device]="deviceEl"></app-device-item>
       </div>
       <div *ngIf="error">An error occurred.</div>
-      <div *ngIf="isFetching">Please wait.</div>
     </div>
   </div>
   
