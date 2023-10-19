@@ -10,7 +10,7 @@ export class Device {
         public type: string, 
         public house: House, 
         public active: boolean, 
-        public ipAddress: string, 
+        public ip_address: string, 
         public port: number, 
         public protocol: string) {}    
 }

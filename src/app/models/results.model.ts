@@ -1,11 +1,11 @@
 import { Device } from "./device.model";
 
-export class Temp {
+export class Results {
     constructor(
         public id: number,
         public device: Device, 
         public date: string,
-        public temp: number,
-        public heat: number
+        public value_1: number,
+        public value_2: number
 ) {}    
 }

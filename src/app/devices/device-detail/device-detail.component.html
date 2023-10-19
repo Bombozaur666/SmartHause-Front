@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="pull-left">
+            <div *ngIf="!device; else loaded">Please select Device.</div>
+            <ng-template #loaded>
+                <div>
+                    <div>
+                        <h4 class="list-group-item-heading">{{ device.name }}</h4>
+                        <p class="list-group-item-text">Type: {{ device.type }}</p>
+                        <p class="list-group-item-text">Producer: {{ device.producer.name }}</p>
+                        <p class="list-group-item-text">House: {{ device.house.name }}</p>
+                        <p class="list-group-item-text">IP: {{ device.ip_address }}</p>
+                        <p class="list-group-item-text">Port: {{ device.port }}</p>
+                        <p class="list-group-item-text">Protocol: {{ device.protocol }}</p>
+                        <p class="list-group-item-text">API: {{ device.apiUrl }}</p>
+                    </div>
+                    <div class="col-xs-12">
+                        <button class="btn btn-success" [routerLink]="['./results']">Results</button>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

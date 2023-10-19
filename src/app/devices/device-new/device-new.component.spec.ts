@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainPageComponent } from './main-page.component';
+import { DeviceNewComponent } from './device-new.component';
 
-describe('MainPageComponent', () => {
-  let component: MainPageComponent;
-  let fixture: ComponentFixture<MainPageComponent>;
+describe('DeviceNewComponent', () => {
+  let component: DeviceNewComponent;
+  let fixture: ComponentFixture<DeviceNewComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MainPageComponent]
+      declarations: [DeviceNewComponent]
     });
-    fixture = TestBed.createComponent(MainPageComponent);
+    fixture = TestBed.createComponent(DeviceNewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

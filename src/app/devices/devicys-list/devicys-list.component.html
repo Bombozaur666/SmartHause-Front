@@ -1,18 +1,17 @@
 <div class="row">
-    <div class="col-xs-12">
-      <button class="btn btn-success">New Device</button>
-    </div>
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewDevice()">New Device</button>
   </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12">
-      <div *ngIf="isFetching">Please wait.</div>
-      <div *ngIf="!isFetching && !error">
-        <app-device-item
-        *ngFor="let deviceEl of devicesList" [device]="deviceEl"></app-device-item>
-      </div>
-      <div *ngIf="error">An error occurred.</div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <div *ngIf="isFetching">Please wait.</div>
+    <div *ngIf="!isFetching && !error">
+      <app-device-item
+      *ngFor="let deviceEl of devicesList"
+      [device]="deviceEl"></app-device-item>
     </div>
+    <div *ngIf="error">An error occurred.</div>
   </div>
-  
-  
+</div>

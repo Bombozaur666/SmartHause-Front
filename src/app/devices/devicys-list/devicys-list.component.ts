@@ -3,11 +3,11 @@ import { DeviceService } from '../device.service';
 import { HttpClient } from '@angular/common/http';
 import { Device } from 'src/app/models/device.model';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-devicys-list',
-  templateUrl: './devicys-list.component.html',
-  styleUrls: ['./devicys-list.component.css']
+  templateUrl: './devicys-list.component.html'
 })
 export class DevicysListComponent implements OnInit, OnDestroy{
   protected devicesList: Device[] = [];
@@ -16,7 +16,10 @@ export class DevicysListComponent implements OnInit, OnDestroy{
   protected isFetching:boolean = false;
   
 
-  constructor(private dev: DeviceService, private http: HttpClient) {}
+  constructor(private dev: DeviceService,
+              private http: HttpClient,
+              private router: Router,
+              private route: ActivatedRoute) {}
 
   ngOnInit(): void {
       this.onFetch();
@@ -26,16 +29,20 @@ export class DevicysListComponent implements OnInit, OnDestroy{
     this.subscription = this.dev.fetchDevicys().subscribe(
       {
         next: data => {
-          this.devicesList = [];
-          this.devicesList = data;  
+          this.dev.setDevices(data);
+          this.devicesList = this.dev.getDevices();
+          this.isFetching = false;
         }, 
         error: error => {
           this.error=error.message;
+          this.isFetching = false;
         }      
       }
     );
-    this.isFetching = false;
-      
+  }
+
+  onNewDevice() {
+    this.router.navigate(['new'], {relativeTo: this.route})
   }
 
   ngOnDestroy(): void {

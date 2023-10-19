@@ -13,6 +13,9 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { DeviceService } from './devices/device.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DeviceItemComponent } from './devices/devicys-list/device-item/device-item.component';
+import { DeviceDetailComponent } from './devices/device-detail/device-detail.component';
+import { DeviceNewComponent } from './devices/device-new/device-new.component';
+import { ResultService } from './devices/results/results.service';
 
 
 @NgModule({
@@ -26,13 +29,15 @@ import { DeviceItemComponent } from './devices/devicys-list/device-item/device-i
     ResultsComponent,
     MainPageComponent,
     DeviceItemComponent,
+    DeviceDetailComponent,
+    DeviceNewComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [DeviceService],
+  providers: [DeviceService, HttpClientModule, ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

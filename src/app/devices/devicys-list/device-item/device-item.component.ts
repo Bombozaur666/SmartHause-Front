@@ -1,21 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Device } from 'src/app/models/device.model';
-import { DeviceService } from '../../device.service';
 
 @Component({
   selector: 'app-device-item',
-  templateUrl: './device-item.component.html',
-  styleUrls: ['./device-item.component.css']
+  templateUrl: './device-item.component.html'
 })
-export class DeviceItemComponent implements OnInit{
+export class DeviceItemComponent {
 
   @Input() device: Device;
 
-  constructor (private http: HttpClient, private dec: DeviceService) {}
-
-   ngOnInit(): void {
-         
-   }
+  constructor () {}
 
 }

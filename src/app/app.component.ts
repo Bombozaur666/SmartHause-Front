@@ -6,6 +6,7 @@ import {
   HttpEventType
 } from '@angular/common/http';
 import { DeviceService } from './devices/device.service';
+import { ResultService } from './devices/results/results.service';
 
 @Component({
   selector: 'app-root',
