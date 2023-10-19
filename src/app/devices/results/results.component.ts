@@ -34,6 +34,9 @@ export class ResultsComponent implements OnInit {
   onFetch(): void {
     this.isFetching = true;
     console.log(this.device);
-  };
+    switch(this.device.type) {
+      case '':
+        console.log('elo');
+    }  };
 
 }

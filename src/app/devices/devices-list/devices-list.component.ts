@@ -6,10 +6,10 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-devicys-list',
-  templateUrl: './devicys-list.component.html'
+  selector: 'app-devices-list',
+  templateUrl: './devices-list.component.html'
 })
-export class DevicysListComponent implements OnInit, OnDestroy{
+export class DevicesListComponent implements OnInit, OnDestroy{
   protected devicesList: Device[] = [];
   subscription: Subscription = Subscription.EMPTY;
   protected error: string|null = null;
@@ -26,7 +26,7 @@ export class DevicysListComponent implements OnInit, OnDestroy{
   }
   onFetch() {
     this.isFetching=true;
-    this.subscription = this.dev.fetchDevicys().subscribe(
+    this.subscription = this.dev.fetchDevices().subscribe(
       {
         next: data => {
           this.dev.setDevices(data);

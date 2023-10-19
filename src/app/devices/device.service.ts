@@ -11,7 +11,7 @@ export class DeviceService {
     
     constructor(private http: HttpClient) {};
 
-    fetchDevicys() {
+    fetchDevices() {
         return this.http.get<Device[]>(
             "http://localhost:8000/devices/list/"
         )
