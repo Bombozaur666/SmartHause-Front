@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Device } from '../models/device.model';
 import { HttpClient, } from '@angular/common/http';
-import { Subject, map, tap } from 'rxjs';
+import { Observable, Subject, map, tap } from 'rxjs';
 
  
 @Injectable()
@@ -12,7 +12,7 @@ export class DeviceService {
     
     constructor(private http: HttpClient) {};
 
-    fetchDevices() {
+    fetchDevices(): Observable<Device[]> {
         return this.http.get<Device[]>(
             this.url
         ).pipe(
@@ -43,7 +43,7 @@ export class DeviceService {
         )
     }
 
-    setDevices(devices: Device[]):void {
+    setDevices(devices: Device[]): void {
         this.devices = devices;
         this.devicesChanged.next(devices.slice());
     }
@@ -52,7 +52,7 @@ export class DeviceService {
         return this.devices.find(dev => dev.id == id);
     }
 
-    getDevices() {
+    getDevices(): Device[] {
         return this.devices.slice();
     }
 }
