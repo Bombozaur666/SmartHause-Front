@@ -18,7 +18,7 @@ const routes: Routes = [
       {path: '', component: DevicesListComponent},
       {path: 'new', component: DeviceNewComponent},
       {path: ':id', component: DeviceDetailComponent, resolve: [fetchDevicesResolver]},
-      {path: ':id/results', component: ResultsComponent},
+      {path: ':id/results', component: ResultsComponent, resolve: [fetchDevicesResolver]},
     ]
   },
 
