@@ -25,9 +25,7 @@ ngOnInit(): void {
     (params: Params) => { 
       this.id = +params['id'];
       this.device = this.dev.getDevice(this.id);
-      console.log(this.device);
     }
-    
   )
 }
 }

@@ -15,14 +15,18 @@ export class ResultsComponent implements OnInit, OnDestroy {
   private subscription: Subscription = Subscription.EMPTY;
   private device: Device;
   private id:number;
-  protected resultsTemp: Results[] = [];
+  protected resultsTemperature: Results[] = [];
   protected resultsHumidity: Results[] = [];
   protected error: string|null = null;
   protected isFetching:boolean = false;
-  private tab:string = 'temp';
+  protected readonly TEMPERATURE: string = 'temperature';
+  protected readonly HUMIDITY: string = 'humidity';
+  protected tab: string = this.TEMPERATURE;
+  
+  private readonly allowedTabs: string[] = [this.TEMPERATURE, this.HUMIDITY];
 
-  constructor(private http: HttpClient, 
-              private res: ResultService,
+
+  constructor(private res: ResultService,
               private dev: DeviceService,
               private route: ActivatedRoute) {}
 
@@ -34,10 +38,19 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   onFetch(): void {
     this.isFetching = true;
-    console.log(this.device);
     switch(this.device.type) {
       case 'thermal and humidity': {
-        this.res.fetchResults(this.id);
+        this.subscription = this.res.fetchResults(this.id).subscribe({
+          next: data => {
+            this.resultsTemperature = data[this.TEMPERATURE];
+            this.resultsHumidity = data[this.HUMIDITY];
+            this.isFetching = false;
+          }, 
+          error: error => {
+            this.error=error.message;
+            this.isFetching = false;
+          }      
+        });
         break;
       }
     }
@@ -45,6 +58,16 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  onChangeTab(name: string): void {
+    if (this.allowedTabs.includes(name)) {
+      this.error = null;
+      this.tab=name;
+    } else {
+      this.error = 'Please select proper tab';
+    }
+    
   }
 
 }

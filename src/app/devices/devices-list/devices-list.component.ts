@@ -17,7 +17,6 @@ export class DevicesListComponent implements OnInit, OnDestroy{
   
 
   constructor(private dev: DeviceService,
-              private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute) {}
 
