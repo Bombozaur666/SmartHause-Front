@@ -8,6 +8,7 @@ import { DevicesListComponent } from './devices/devices-list/devices-list.compon
 import { ResultsComponent } from './devices/results/results.component';
 import { DeviceDetailComponent } from './devices/device-detail/device-detail.component';
 import { DeviceNewComponent } from './devices/device-new/device-new.component';
+import { fetchDevicesResolver } from './routingResolvers';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -16,7 +17,7 @@ const routes: Routes = [
     children: [
       {path: '', component: DevicesListComponent},
       {path: 'new', component: DeviceNewComponent},
-      {path: ':id', component: DeviceDetailComponent},
+      {path: ':id', component: DeviceDetailComponent, resolve: [fetchDevicesResolver]},
       {path: ':id/results', component: ResultsComponent},
     ]
   },

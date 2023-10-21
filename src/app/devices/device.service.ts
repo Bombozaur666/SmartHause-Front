@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Device } from '../models/device.model';
 import { HttpClient, } from '@angular/common/http';
-import { Subject, map } from 'rxjs';
+import { Subject, map, tap } from 'rxjs';
 
  
 @Injectable()
 export class DeviceService {
     devicesChanged = new Subject<Device[]>();
     private devices: Device[] = [];
+    readonly url: string = "http://localhost:8000/devices/list/"
     
     constructor(private http: HttpClient) {};
 
     fetchDevices() {
         return this.http.get<Device[]>(
-            "http://localhost:8000/devices/list/"
+            this.url
         ).pipe(
             map(
                 devices => {
@@ -35,14 +36,16 @@ export class DeviceService {
                     });
                     return devices
                 }
-            )
+            ),
+            tap(devices => {
+                this.setDevices(devices);
+            })
         )
     }
 
     setDevices(devices: Device[]):void {
         this.devices = devices;
         this.devicesChanged.next(devices.slice());
-        console.log(devices);
     }
 
     getDevice(id: number): Device {
