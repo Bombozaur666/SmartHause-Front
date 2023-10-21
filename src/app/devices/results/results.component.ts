@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Device } from 'src/app/models/device.model';
 import { ResultService } from './results.service';

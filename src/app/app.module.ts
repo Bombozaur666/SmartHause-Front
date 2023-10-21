@@ -16,7 +16,8 @@ import { DeviceItemComponent } from './devices/devices-list/device-item/device-i
 import { DeviceDetailComponent } from './devices/device-detail/device-detail.component';
 import { DeviceNewComponent } from './devices/device-new/device-new.component';
 import { ResultService } from './devices/results/results.service';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,12 +31,14 @@ import { ResultService } from './devices/results/results.service';
     MainPageComponent,
     DeviceItemComponent,
     DeviceDetailComponent,
-    DeviceNewComponent,
+    DeviceNewComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   providers: [DeviceService, HttpClientModule, ResultService],
   bootstrap: [AppComponent]

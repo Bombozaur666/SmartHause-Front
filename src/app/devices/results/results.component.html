@@ -7,7 +7,11 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <div *ngIf="isFetching">Please wait.</div>
+      <div *ngIf="isFetching">
+        Please wait.
+        <mat-progress-spinner mode="indeterminate">
+        </mat-progress-spinner>
+    </div>
       <div *ngIf="!isFetching && !error">
         <div *ngIf="tab=='temperature'">
             {{TEMPERATURE}}
