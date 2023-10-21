@@ -35,8 +35,11 @@ export class ResultsComponent implements OnInit {
     this.isFetching = true;
     console.log(this.device);
     switch(this.device.type) {
-      case '':
-        console.log('elo');
-    }  };
+      case 'thermal and humidity': {
+        console.log('elo3');
+        break;
+      }
+    }
+  }
 
 }

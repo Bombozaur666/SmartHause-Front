@@ -20,14 +20,6 @@ export class DeviceService {
                 devices => {
                     devices.forEach(device => {
                         switch(device.type) {
-                            case 'the': {
-                                device.type = 'thermal';
-                                break;
-                            }
-                            case 'hum': {
-                                device.type = 'humidity';
-                                break;
-                            }
                             case 'tah': {
                                 device.type = 'thermal and humidity';
                                 break;
