@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DevicesListComponent implements OnInit, OnDestroy{
   protected devicesList: Device[] = [];
-  subscription: Subscription = Subscription.EMPTY;
+  private subscription: Subscription = Subscription.EMPTY;
   protected error: string|null = null;
   protected isFetching:boolean = false;
   

@@ -1,17 +1,16 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Subject, map} from 'rxjs';
+import { HttpClient} from '@angular/common/http';
 import { Results } from 'src/app/models/results.model';
 import { Subscription } from 'rxjs';
 
 @Injectable()
-export class ResultService implements OnDestroy{
-    subscription: Subscription= Subscription.EMPTY;
+export class ResultService {
+    readonly url: string = 'http://localhost:8000/devices'
 
     constructor(private http: HttpClient) {};
 
-    fetchResults(id: number, type: string) {
-        const link = 'http://localhost:8000/devices' + id + 'results' + type;
+    fetchResults(id: number) {
+        const link = this.url + id + 'results';
         return this.http.get<Results[]>(
             link
         ).subscribe({
@@ -22,9 +21,5 @@ export class ResultService implements OnDestroy{
               ;
             }      
           });
-    }
-
-    ngOnDestroy(): void {
-        this.subscription.unsubscribe();
     }
 }
