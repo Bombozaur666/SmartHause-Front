@@ -47,7 +47,7 @@ import { ResultsGroupHumidityComponent } from './devices/results/results-group-h
     DeviceDetailComponent,
     DeviceNewComponent,
     ResultsGroupHumidityComponent,
-    ResultsGroupTemperatureComponent
+    ResultsGroupTemperatureComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +61,7 @@ import { ResultsGroupHumidityComponent } from './devices/results/results-group-h
     MatButtonModule,
     MatTabsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ],
   providers: [DeviceService, HttpClientModule, ResultService],
   bootstrap: [AppComponent]

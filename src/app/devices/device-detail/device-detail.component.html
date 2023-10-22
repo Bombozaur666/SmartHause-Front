@@ -3,7 +3,7 @@
 </mat-card>
 
 <ng-template #loaded>
-    <mat-card-title>{{ device.name }}</mat-card-title>
+    <mat-card-title> {{ device.name | uppercase }} </mat-card-title>
     
     <mat-card-content>
         <p class="list-group-item-text">Type: {{ device.type }}</p>
