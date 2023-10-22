@@ -13,11 +13,10 @@ export class DeviceItemComponent {
   constructor () {}
 
   onRemove(id: number): void {
-
+    console.log('remove' + id);
   }
 
   onEdit(id:  number): void {
-    
+    console.log('edit' + id);
   }
-
 }
