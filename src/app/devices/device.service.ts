@@ -8,13 +8,13 @@ import { Observable, Subject, map, tap } from 'rxjs';
 export class DeviceService {
     devicesChanged = new Subject<Device[]>();
     private devices: Device[] = [];
-    readonly url: string = "http://localhost:8000/devices/list/"
+    readonly url: string = "http://localhost:8000/devices/"
     
     constructor(private http: HttpClient) {};
 
     fetchDevices(): Observable<Device[]> {
         return this.http.get<Device[]>(
-            this.url
+            this.url + 'list/'
         ).pipe(
             map(
                 devices => {
@@ -32,6 +32,12 @@ export class DeviceService {
             tap(devices => {
                 this.setDevices(devices);
             })
+        )
+    }
+
+    removeDevice(id: number): Observable<any> {
+        return this.http.delete(
+            this.url + 'remove'
         )
     }
 

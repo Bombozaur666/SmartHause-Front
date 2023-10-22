@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Device } from 'src/app/models/device.model';
+import { DeviceService } from '../../device.service';
 
 @Component({
   selector: 'app-device-item',
@@ -10,7 +11,7 @@ export class DeviceItemComponent {
 
   @Input() device: Device;
 
-  constructor () {}
+  constructor (private dev: DeviceService) {}
 
   onRemove(id: number): void {
     console.log('remove' + id);
