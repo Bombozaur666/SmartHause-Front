@@ -18,7 +18,4 @@ export class ResultsGroupTemperatureComponent implements AfterViewInit {
     this.dataSource.data = this.results;
     this.dataSource.paginator = this.paginator;
   }
-  onPaginateChange($event) {
-    console.log($event);
-    }
 }
