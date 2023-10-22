@@ -44,7 +44,7 @@ export class DevicesListComponent implements OnInit, OnDestroy{
   }
 
   onRefresh(): void {
-    this.onFetch
+    this.onFetch();
   }
 
   ngOnDestroy(): void {
