@@ -3,7 +3,9 @@
     <button 
       mat-raised-button 
       color="primary" 
-      (click)="onNewDevice()">
+      (click)="onNewDevice()"
+      matTooltip="Add new device"
+      aria-label="Add new device button">
       New Device 
       <mat-icon>add_to_queue</mat-icon>
     </button>
@@ -11,7 +13,9 @@
       mat-raised-button 
       color="primary" 
       style="float: right;"
-      (click)="onRefresh()">
+      (click)="onRefresh()"
+      matTooltip="Refresh list of devices"
+      aria-label="Refresh list of devices button">
         <mat-icon>refresh</mat-icon>
     </button>
   </div>

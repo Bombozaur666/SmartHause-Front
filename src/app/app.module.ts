@@ -29,6 +29,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 import { ResultsGroupTemperatureComponent } from './devices/results/results-group-temperature/results-group-temperature.component';
 import { ResultsGroupHumidityComponent } from './devices/results/results-group-humidity/results-group-humidity.component';
 
@@ -62,6 +64,7 @@ import { ResultsGroupHumidityComponent } from './devices/results/results-group-h
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatTooltipModule
   ],
   providers: [DeviceService, HttpClientModule, ResultService],
   bootstrap: [AppComponent]
