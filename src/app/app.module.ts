@@ -18,6 +18,7 @@ import { DeviceNewComponent } from './devices/device-new/device-new.component';
 import { ResultService } from './devices/results/results.service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [DeviceService, HttpClientModule, ResultService],
   bootstrap: [AppComponent]
