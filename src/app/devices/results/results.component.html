@@ -1,11 +1,5 @@
-<div class="row">
-    <div class="col-xs-12">
-      <button class="btn btn-success" (click)="onChangeTab(TEMPERATURE)">Temperature</button>
-      <button class="btn btn-success" (click)="onChangeTab(HUMIDITY)">Humidity</button>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
+<mat-tab-group>
+  <mat-tab label="Temperature">
     <div class="col-xs-12">
       <div *ngIf="isFetching">
         Please wait.
@@ -13,14 +7,22 @@
         </mat-progress-spinner>
     </div>
       <div *ngIf="!isFetching && !error">
-        <div *ngIf="tab=='temperature'">
-            {{TEMPERATURE}}
-        </div>
-        <div *ngIf="tab=='humidity'">
-            {{HUMIDITY}}
-        </div>
+        <app-results-group [results]="resultsTemperature"></app-results-group>
       </div>
       <div *ngIf="error">An error occurred: {{error}}</div>
     </div>
-  </div>
-  
+   </mat-tab>
+  <mat-tab label="Humidity">
+    <div class="col-xs-12">
+      <div *ngIf="isFetching">
+        Please wait.
+        <mat-progress-spinner mode="indeterminate">
+        </mat-progress-spinner>
+    </div>
+      <div *ngIf="!isFetching && !error">
+        <app-results-group [results]="resultsHumidity"></app-results-group>
+      </div>
+      <div *ngIf="error">An error occurred: {{error}}</div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

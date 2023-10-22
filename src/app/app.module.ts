@@ -16,9 +16,15 @@ import { DeviceItemComponent } from './devices/devices-list/device-item/device-i
 import { DeviceDetailComponent } from './devices/device-detail/device-detail.component';
 import { DeviceNewComponent } from './devices/device-new/device-new.component';
 import { ResultService } from './devices/results/results.service';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ResultsGroupComponent } from './devices/results/results-group/results-group.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,8 @@ import {MatCardModule} from '@angular/material/card';
     MainPageComponent,
     DeviceItemComponent,
     DeviceDetailComponent,
-    DeviceNewComponent
+    DeviceNewComponent,
+    ResultsGroupComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,11 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatTabsModule
   ],
   providers: [DeviceService, HttpClientModule, ResultService],
   bootstrap: [AppComponent]
