@@ -11,7 +11,7 @@ import { ProducentsComponent } from './producents/producents.component';
 import { DevicesListComponent } from './devices/devices-list/devices-list.component';
 import { ResultsComponent } from './devices/results/results.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { ResultsGroupComponent } from './devices/results/results-group/results-group.component';
+import { ResultsGroupComponent } from './devices/results/results-group-humidity/results-group-humidity.component';
 import { DeviceItemComponent } from './devices/devices-list/device-item/device-item.component';
 import { DeviceDetailComponent } from './devices/device-detail/device-detail.component';
 import { DeviceNewComponent } from './devices/device-new/device-new.component';
@@ -29,6 +29,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ResultsGroupTemperatureComponent } from './devices/results/results-group-temperature/results-group-temperature.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     DeviceItemComponent,
     DeviceDetailComponent,
     DeviceNewComponent,
-    ResultsGroupComponent
+    ResultsGroupComponent,
+    ResultsGroupTemperatureComponent
   ],
   imports: [
     BrowserModule,
