@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class ResultsComponent implements OnInit, OnDestroy {
   private subscription: Subscription = Subscription.EMPTY;
-  private device: Device;
+  protected device: Device;
   private id:number;
   protected resultsTemperature: Results[] = [];
   protected resultsHumidity: Results[] = [];
@@ -69,4 +69,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
     
   }
 
+  onRefresh():void {
+    this.onFetch();
+  }
+ 
 }

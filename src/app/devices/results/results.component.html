@@ -1,28 +1,43 @@
-<mat-tab-group>
-  <mat-tab label="Temperature">
-    <div class="col-xs-12">
-      <div *ngIf="isFetching">
-        Please wait.
-        <mat-progress-spinner mode="indeterminate">
-        </mat-progress-spinner>
-    </div>
-      <div *ngIf="!isFetching && !error">
-        <app-results-group-temperature [results]="resultsTemperature"></app-results-group-temperature>
+<div>
+  <div>
+    <h1>
+      {{device.name}}
+      <button 
+        mat-raised-button 
+        color="primary" 
+        style="float: right;"
+        (click)="onRefresh()">
+          Refresh
+      </button>
+    </h1>
+
+  </div>
+  <mat-tab-group>
+    <mat-tab label="Temperature">
+      <div class="col-xs-12">
+        <div *ngIf="isFetching">
+          Please wait.
+          <mat-progress-spinner mode="indeterminate">
+          </mat-progress-spinner>
       </div>
-      <div *ngIf="error">An error occurred: {{error}}</div>
-    </div>
-   </mat-tab>
-  <mat-tab label="Humidity">
-    <div class="col-xs-12">
-      <div *ngIf="isFetching">
-        Please wait.
-        <mat-progress-spinner mode="indeterminate">
-        </mat-progress-spinner>
-    </div>
-      <div *ngIf="!isFetching && !error">
-        <app-results-group-humidity [results]="resultsHumidity"></app-results-group-humidity>
+        <div *ngIf="!isFetching && !error">
+          <app-results-group-temperature [results]="resultsTemperature"></app-results-group-temperature>
+        </div>
+        <div *ngIf="error">An error occurred: {{error}}</div>
       </div>
-      <div *ngIf="error">An error occurred: {{error}}</div>
-    </div>
-  </mat-tab>
-</mat-tab-group>
+     </mat-tab>
+    <mat-tab label="Humidity">
+      <div class="col-xs-12">
+        <div *ngIf="isFetching">
+          Please wait.
+          <mat-progress-spinner mode="indeterminate">
+          </mat-progress-spinner>
+      </div>
+        <div *ngIf="!isFetching && !error">
+          <app-results-group-humidity [results]="resultsHumidity"></app-results-group-humidity>
+        </div>
+        <div *ngIf="error">An error occurred: {{error}}</div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
