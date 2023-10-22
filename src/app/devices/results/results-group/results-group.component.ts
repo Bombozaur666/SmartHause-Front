@@ -7,9 +7,9 @@ import { Results } from '../../../models/results.model';
   styleUrls: ['./results-group.component.css']
 })
 export class ResultsGroupComponent {
-
+  protected readonly displayedColumns: string[] = ['position', 'date', 'value_1', 'value_2'];
   @Input() results: Results[];
 
-  
+
 
 }

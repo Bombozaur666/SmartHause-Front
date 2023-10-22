@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { DevicesComponent } from './devices/devices.component';
@@ -10,12 +11,14 @@ import { ProducentsComponent } from './producents/producents.component';
 import { DevicesListComponent } from './devices/devices-list/devices-list.component';
 import { ResultsComponent } from './devices/results/results.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { DeviceService } from './devices/device.service';
-import { HttpClientModule } from '@angular/common/http';
+import { ResultsGroupComponent } from './devices/results/results-group/results-group.component';
 import { DeviceItemComponent } from './devices/devices-list/device-item/device-item.component';
 import { DeviceDetailComponent } from './devices/device-detail/device-detail.component';
 import { DeviceNewComponent } from './devices/device-new/device-new.component';
+
+import { DeviceService } from './devices/device.service';
 import { ResultService } from './devices/results/results.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -24,7 +27,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
-import { ResultsGroupComponent } from './devices/results/results-group/results-group.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +56,9 @@ import { ResultsGroupComponent } from './devices/results/results-group/results-g
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [DeviceService, HttpClientModule, ResultService],
   bootstrap: [AppComponent]
