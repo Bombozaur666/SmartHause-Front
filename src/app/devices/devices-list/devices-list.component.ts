@@ -39,8 +39,12 @@ export class DevicesListComponent implements OnInit, OnDestroy{
     );
   }
 
-  onNewDevice() {
+  onNewDevice(): void {
     this.router.navigate(['new'], {relativeTo: this.route})
+  }
+
+  onRefresh(): void {
+    this.onFetch
   }
 
   ngOnDestroy(): void {

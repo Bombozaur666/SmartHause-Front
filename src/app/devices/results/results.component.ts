@@ -20,7 +20,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
   protected isFetching:boolean = false;
   protected readonly TEMPERATURE: string = 'temperature';
   protected readonly HUMIDITY: string = 'humidity';
-  protected tab: string = this.TEMPERATURE;
   
   private readonly allowedTabs: string[] = [this.TEMPERATURE, this.HUMIDITY];
 
@@ -57,16 +56,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  onChangeTab(name: string): void {
-    if (this.allowedTabs.includes(name)) {
-      this.error = null;
-      this.tab=name;
-    } else {
-      this.error = 'Please select proper tab';
-    }
-    
   }
 
   onRefresh():void {
