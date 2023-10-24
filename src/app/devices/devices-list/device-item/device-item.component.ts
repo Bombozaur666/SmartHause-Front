@@ -28,7 +28,6 @@ export class DeviceItemComponent implements OnDestroy{
       next: () => {
           this.dev.removeDeviceFromArray(id);
           this.openSnackBar(this.positiveRemoveMessage);
-          this.openAlertDialog('errorek', this.initialErrorMessage);
       },
       error: error => {
           this.openAlertDialog(error.message, this.initialErrorMessage);

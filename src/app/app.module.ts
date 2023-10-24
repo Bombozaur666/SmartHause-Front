@@ -31,7 +31,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { ResultsGroupTemperatureComponent } from './devices/results/results-group-temperature/results-group-temperature.component';
@@ -73,7 +73,12 @@ import { AlertDialogComponent } from './devices/devices-list/device-item/alert-d
     MatSnackBarModule,
     MatDialogModule,
   ],
-  providers: [DeviceService, HttpClientModule, ResultService],
+  providers: [
+    DeviceService, 
+    HttpClientModule, 
+    ResultService,
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 3000}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
