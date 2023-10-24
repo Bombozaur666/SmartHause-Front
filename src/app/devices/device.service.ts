@@ -37,13 +37,20 @@ export class DeviceService {
 
     removeDevice(id: number): Observable<any> {
         return this.http.delete(
-            this.url + 'remove'
-        )
+            this.url + id + '/remove/'
+        );
+    }
+
+    removeDeviceFromArray(id: number):void {
+        this.devices = this.devices.filter(devices => {
+            return devices.id !== id;
+        });
+        this.devicesChanged.next(this.devices.slice());
     }
 
     setDevices(devices: Device[]): void {
         this.devices = devices;
-        this.devicesChanged.next(devices.slice());
+        this.devicesChanged.next(this.devices.slice());
     }
 
     getDevice(id: number): Device {

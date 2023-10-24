@@ -11,9 +11,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DevicesListComponent implements OnInit, OnDestroy{
   protected devicesList: Device[] = [];
-  private subscription: Subscription = Subscription.EMPTY;
+  private subscriptionFetch: Subscription = Subscription.EMPTY;
+  private subscriptionDevice: Subscription = Subscription.EMPTY;
   protected error: string|null = null;
   protected isFetching:boolean = false;
+
   
 
   constructor(private dev: DeviceService,
@@ -25,7 +27,14 @@ export class DevicesListComponent implements OnInit, OnDestroy{
   }
   onFetch() {
     this.isFetching=true;
-    this.subscription = this.dev.fetchDevices().subscribe(
+    this.subscriptionDevice = this.dev.devicesChanged.subscribe(
+      {
+        next: data => {
+          this.devicesList = data;
+        }   
+      }
+    );
+    this.subscriptionFetch = this.dev.fetchDevices().subscribe(
       {
         next: data => {
           this.devicesList = this.dev.getDevices();
@@ -48,6 +57,6 @@ export class DevicesListComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptionFetch.unsubscribe();
   }
 }
