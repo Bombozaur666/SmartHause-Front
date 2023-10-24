@@ -16,6 +16,7 @@ import { DeviceItemComponent } from './devices/devices-list/device-item/device-i
 import { DeviceDetailComponent } from './devices/device-detail/device-detail.component';
 import { DeviceNewComponent } from './devices/device-new/device-new.component';
 
+
 import { DeviceService } from './devices/device.service';
 import { ResultService } from './devices/results/results.service';
 
@@ -31,9 +32,11 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { ResultsGroupTemperatureComponent } from './devices/results/results-group-temperature/results-group-temperature.component';
 import { ResultsGroupHumidityComponent } from './devices/results/results-group-humidity/results-group-humidity.component';
+import { AlertDialogComponent } from './devices/devices-list/device-item/alert-dialog/alert-dialog.component';
 
 
 @NgModule({
@@ -51,6 +54,7 @@ import { ResultsGroupHumidityComponent } from './devices/results/results-group-h
     DeviceNewComponent,
     ResultsGroupHumidityComponent,
     ResultsGroupTemperatureComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ import { ResultsGroupHumidityComponent } from './devices/results/results-group-h
     MatTableModule,
     MatPaginatorModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
   ],
   providers: [DeviceService, HttpClientModule, ResultService],
   bootstrap: [AppComponent]

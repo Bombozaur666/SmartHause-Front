@@ -42,7 +42,7 @@ export class DevicesListComponent implements OnInit, OnDestroy{
           this.isFetching = false;
         }, 
         error: error => {
-          this.error=error.message;
+          this.error = error.message;
           this.isFetching = false;
         }      
       }
