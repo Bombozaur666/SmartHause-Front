@@ -37,7 +37,7 @@ export class DevicesListComponent implements OnInit, OnDestroy{
     
     this.subscriptionFetch = this.dev.fetchDevices().subscribe(
       {
-        next: data => {
+        next: () => {
           this.devicesList = this.dev.getDevices();
           this.isFetching = false;
         }, 

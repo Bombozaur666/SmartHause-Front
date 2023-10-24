@@ -25,7 +25,7 @@ export class DeviceItemComponent implements OnDestroy{
   onRemove(id: number): void {
     this.subscription = this.dev.removeDevice(id)
     .subscribe({
-      next: data => {
+      next: () => {
           this.dev.removeDeviceFromArray(id);
           this.openSnackBar(this.positiveRemoveMessage);
           this.openAlertDialog('errorek', this.initialErrorMessage);

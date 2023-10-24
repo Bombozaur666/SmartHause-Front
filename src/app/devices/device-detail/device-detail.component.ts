@@ -13,9 +13,7 @@ export class DeviceDetailComponent implements OnInit {
   private id: number;  
 
   constructor(private dev: DeviceService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private http: HttpClient) {
+    private route: ActivatedRoute) {
 }
 
 
