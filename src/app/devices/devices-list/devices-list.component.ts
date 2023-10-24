@@ -34,6 +34,7 @@ export class DevicesListComponent implements OnInit, OnDestroy{
         }   
       }
     );
+    
     this.subscriptionFetch = this.dev.fetchDevices().subscribe(
       {
         next: data => {
@@ -58,5 +59,6 @@ export class DevicesListComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.subscriptionFetch.unsubscribe();
+    this.subscriptionDevice.unsubscribe();
   }
 }

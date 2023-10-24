@@ -23,7 +23,7 @@
           </mat-progress-spinner>
       </div>
         <div *ngIf="!isFetching && !error">
-          <app-results-group-temperature [results]="resultsTemperature"></app-results-group-temperature>
+          <app-results-group-temperature [results]="resultsTemperature" [id] = "device.id"></app-results-group-temperature>
         </div>
         <div *ngIf="error">An error occurred: {{error}}</div>
       </div>
@@ -36,7 +36,7 @@
           </mat-progress-spinner>
       </div>
         <div *ngIf="!isFetching && !error">
-          <app-results-group-humidity [results]="resultsHumidity"></app-results-group-humidity>
+          <app-results-group-humidity [results]="resultsHumidity"  [id] = "device.id"></app-results-group-humidity>
         </div>
         <div *ngIf="error">An error occurred: {{error}}</div>
       </div>

@@ -11,7 +11,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './results.component.html'
 })
 export class ResultsComponent implements OnInit, OnDestroy {
-  private subscription: Subscription = Subscription.EMPTY;
+  private subscriptionFetch: Subscription = Subscription.EMPTY;
+  private subscriptionDestroy: Subscription = Subscription.EMPTY;
   protected device: Device;
   private id:number;
   protected resultsTemperature: Results[] = [];
@@ -32,13 +33,21 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.device = this.dev.getDevice(this.id);
     this.onFetch();
+    this.subscriptionDestroy = this.dev.destroyComponent.subscribe({
+      next: (state: number) => {
+        console.log(state);
+        if (state === this.id) {
+          this.ngOnDestroy();
+        }
+      }
+    })
   }
 
   onFetch(): void {
     this.isFetching = true;
     switch(this.device.type) {
       case 'thermal and humidity': {
-        this.subscription = this.res.fetchResults(this.id).subscribe({
+        this.subscriptionFetch = this.res.fetchResults(this.id).subscribe({
           next: data => {
             this.resultsTemperature = data[this.TEMPERATURE];
             this.resultsHumidity = data[this.HUMIDITY];
@@ -54,12 +63,13 @@ export class ResultsComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   onRefresh():void {
     this.onFetch();
   }
  
+
+  ngOnDestroy(): void {
+    this.subscriptionFetch.unsubscribe();
+    this.subscriptionDestroy.unsubscribe;
+  }
 }

@@ -7,10 +7,12 @@ import { Observable, Subject, map, tap } from 'rxjs';
 @Injectable()
 export class DeviceService {
     devicesChanged = new Subject<Device[]>();
+    destroyComponent = new Subject<Number>();
     private devices: Device[] = [];
     readonly url: string = "http://localhost:8000/devices/"
     
     constructor(private http: HttpClient) {};
+
 
     fetchDevices(): Observable<Device[]> {
         return this.http.get<Device[]>(
@@ -46,6 +48,7 @@ export class DeviceService {
             return devices.id !== id;
         });
         this.devicesChanged.next(this.devices.slice());
+        this.destroyComponent.next(id);
     }
 
     setDevices(devices: Device[]): void {
