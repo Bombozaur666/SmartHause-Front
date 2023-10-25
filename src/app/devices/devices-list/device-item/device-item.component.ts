@@ -8,14 +8,14 @@ import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-device-item',
-  templateUrl: './device-item.component.html',
+  templateUrl: '../../../shared/card-item.component.html',
   styleUrls: ['./device-item.component.css']
 })
 export class DeviceItemComponent implements OnDestroy{
   private subscription: Subscription = Subscription.EMPTY;
   private positiveRemoveMessage: string = 'Device has been succesfully removed';
   private initialErrorMessage: string = 'An error occured: \n';
-  @Input() device: Device;
+  @Input() element: Device;
 
   constructor (private dev: DeviceService,
                private snackBar: MatSnackBar,

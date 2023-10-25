@@ -2,14 +2,14 @@
   <div class="container">
     <a
     style="cursor: pointer;"
-    [routerLink]="['./', device.id]"
+    [routerLink]="['./', element.id]"
     routerLinkActive="active"
     class="list-group-item clearfix">
     <mat-card-header>
-      {{ device.name }}
+      {{ element.name }}
     </mat-card-header>
     <mat-card-content>
-      {{ device.type }}
+      {{ element.type }}
     </mat-card-content>
     </a>
     <div style="margin-top: auto; margin-bottom: auto; margin: 10;">
@@ -17,11 +17,11 @@
       style="margin-right: 10px;" 
       matTooltip="Remove device"
       aria-label="Remove device button"
-      (click)="onRemove(device.id)">
+      (click)="onRemove(element.id)">
       delete
       </mat-icon>
       <mat-icon 
-      (click)="onEdit(device.id)"
+      (click)="onEdit(element.id)"
       matTooltip="Edit device"
       aria-label="Edit device button">
       edit

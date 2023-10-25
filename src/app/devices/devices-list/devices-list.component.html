@@ -31,7 +31,7 @@
     <div *ngIf="!isFetching && !error">
       <app-device-item
       *ngFor="let deviceEl of devicesList"
-      [device]="deviceEl"></app-device-item>
+      [element]="deviceEl"></app-device-item>
     </div>
     <div *ngIf="error">An error occurred.</div>
   </div>
