@@ -1,8 +1,6 @@
 import { Address } from './address.model';
-export class House {
-    constructor(
-        public id: number,
-        public name: string, 
-        public address: Address,
-) {}    
+export interface House {
+    id: number,
+    name: string, 
+    address: Address,
 }

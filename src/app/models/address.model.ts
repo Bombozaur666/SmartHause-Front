@@ -1,11 +1,9 @@
 import { City } from "./city.model";
 
-export class Address {
-    constructor(
-        public city: City,
-        public street: string,
-        public zipCode: string,
-        public hauseNumber: string,
-        public flatNumber: number
-    ){}
+export interface Address {
+    city: City,
+    street: string,
+    zipCode: string,
+    hauseNumber: string,
+    flatNumber: number
 }

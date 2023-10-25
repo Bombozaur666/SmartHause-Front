@@ -1,5 +1,3 @@
-export class Tab {
-    constructor(
-        public state: number,
-) {}    
+export interface Tab {
+    state: number,
 }
