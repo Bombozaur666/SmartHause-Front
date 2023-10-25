@@ -6,7 +6,7 @@
       (click)="onNewDevice()"
       matTooltip="Add new device"
       aria-label="Add new device button">
-      New Device 
+      {{addNewButton}}
       <mat-icon>add_to_queue</mat-icon>
     </button>
     <button 
@@ -30,8 +30,8 @@
     </div>
     <div *ngIf="!isFetching && !error">
       <app-device-item
-      *ngFor="let deviceEl of devicesList"
-      [element]="deviceEl"></app-device-item>
+      *ngFor="let element of elementList"
+      [element]="element"></app-device-item>
     </div>
     <div *ngIf="error">An error occurred.</div>
   </div>

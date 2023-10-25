@@ -7,10 +7,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-devices-list',
-  templateUrl: './devices-list.component.html'
+  templateUrl: '../../shared/element-list.component.html'
 })
 export class DevicesListComponent implements OnInit, OnDestroy{
-  protected devicesList: Device[] = [];
+  protected readonly addNewButton: string = 'New Device';
+  protected elementList: Device[] = [];
   private subscriptionFetch: Subscription = Subscription.EMPTY;
   private subscriptionDevice: Subscription = Subscription.EMPTY;
   protected error: string|null = null;
@@ -30,7 +31,7 @@ export class DevicesListComponent implements OnInit, OnDestroy{
     this.subscriptionDevice = this.dev.devicesChanged.subscribe(
       {
         next: data => {
-          this.devicesList = data;
+          this.elementList = data;
         }   
       }
     );
@@ -38,7 +39,7 @@ export class DevicesListComponent implements OnInit, OnDestroy{
     this.subscriptionFetch = this.dev.fetchDevices().subscribe(
       {
         next: () => {
-          this.devicesList = this.dev.getDevices();
+          this.elementList = this.dev.getDevices();
           this.isFetching = false;
         }, 
         error: error => {
