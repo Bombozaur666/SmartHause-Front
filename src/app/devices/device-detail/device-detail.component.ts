@@ -6,7 +6,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 @Component({
   selector: 'app-device-detail',
   templateUrl: './device-detail.component.html',
-  styleUrls: ['device-detail.component.css']
+  styleUrls: ['../../shared/detail-card/detail-card.component.css']
 })
 export class DeviceDetailComponent implements OnInit {
   protected device: Device;

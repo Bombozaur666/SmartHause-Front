@@ -5,7 +5,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-houses-detail',
-  templateUrl: './houses-detail.component.html'
+  templateUrl: './houses-detail.component.html',
+  styleUrls: ['../../shared/detail-card/detail-card.component.css']
 })
 export class HousesDetailComponent {
    private id: number;  

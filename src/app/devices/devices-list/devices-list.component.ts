@@ -6,7 +6,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-devices-list',
-  templateUrl: '../../shared/element-list.component.html'
+  templateUrl: '../../shared/element-list/element-list.component.html',
+  styleUrls: ['../../shared/element-list/element-list.component.css']
+
 })
 export class DevicesListComponent implements OnInit, OnDestroy{
   protected readonly addNewButton: string = 'New Device';

@@ -6,7 +6,8 @@ import { HouseService } from '../house.service';
 
 @Component({
   selector: 'app-houses-list',
-  templateUrl: '../../shared/element-list.component.html'
+  templateUrl: '../../shared/element-list/element-list.component.html',
+  styleUrls: ['../../shared/element-list/element-list.component.css']
 })
 export class HousesListComponent implements OnInit, OnDestroy{
   protected readonly addNewButton: string = 'New House';

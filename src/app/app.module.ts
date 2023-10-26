@@ -41,6 +41,8 @@ import { HousesListComponent } from './houses/houses-list/houses-list.component'
 import { HouseItemComponent } from './houses/houses-list/house-item/house-item.component';
 import { HouseService } from './houses/house.service';
 import { HousesDetailComponent } from './houses/houses-detail/houses-detail.component';
+import { HousesEditComponent } from './houses/houses-edit/houses-edit.component';
+import { DeviceEditComponent } from './devices/device-edit/device-edit.component';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { HousesDetailComponent } from './houses/houses-detail/houses-detail.comp
     AlertDialogComponent,
     HousesListComponent,
     HouseItemComponent,
-    HousesDetailComponent
+    HousesDetailComponent,
+    HousesEditComponent,
+    DeviceEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.icon-group {
+    margin: 0;
+    position: absolute;
+    justify-content: flex-end;
+    top: 50%;
+    left: 85%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-5%, -50%);
+}
+
+.card {
+    margin-bottom: 10px; 
+    color: white;
+}

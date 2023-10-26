@@ -8,8 +8,8 @@ import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-device-item',
-  templateUrl: '../../../shared/card-item.component.html',
-  styleUrls: ['./device-item.component.css']
+  templateUrl: '../../../shared/element-item/element-item.component.html',
+  styleUrls: ['../../../shared/element-item/element-item.component.css']
 })
 export class DeviceItemComponent implements OnDestroy{
   private subscription: Subscription = Subscription.EMPTY;

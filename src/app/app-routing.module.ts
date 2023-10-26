@@ -13,6 +13,8 @@ import { HouseItemComponent } from './houses/houses-list/house-item/house-item.c
 
 import { fetchDevicesResolver, fetchHouseResolver } from './routingResolvers';
 import { HousesDetailComponent } from './houses/houses-detail/houses-detail.component';
+import { HousesEditComponent } from './houses/houses-edit/houses-edit.component';
+import { DeviceEditComponent } from './devices/device-edit/device-edit.component';
 
 
 const routes: Routes = [
@@ -24,6 +26,7 @@ const routes: Routes = [
       {path: 'new', component: DeviceNewComponent},
       {path: ':id', component: DeviceDetailComponent, resolve: [fetchDevicesResolver]},
       {path: ':id/results', component: ResultsComponent, resolve: [fetchDevicesResolver]},
+      {path: ':id/edit', component: DeviceEditComponent, resolve: [fetchDevicesResolver]},
     ]
   },
 
@@ -31,6 +34,7 @@ const routes: Routes = [
   children: [
     {path: '', component: HousesListComponent, resolve: [fetchHouseResolver]},
     {path: ':id', component: HousesDetailComponent, resolve: [fetchHouseResolver]},
+    {path: ':id/edit', component: HousesEditComponent, resolve: [fetchHouseResolver]},
   ]},
   {path: 'producents', component: ProducentsComponent}
 ];

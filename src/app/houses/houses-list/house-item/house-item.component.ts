@@ -7,19 +7,17 @@ import { HouseService } from '../../house.service';
 
 @Component({
   selector: 'app-house-item',
-  templateUrl: '../../../shared/card-item.component.html',
+  templateUrl: '../../../shared/element-item/element-item.component.html',
+  styleUrls: ['../../../shared/element-item/element-item.component.css']
 })
 export class HouseItemComponent {
   private subscription: Subscription = Subscription.EMPTY;
-  private positiveRemoveMessage: string = 'House has been succesfully removed';
-  private initialErrorMessage: string = 'An error occured: \n';
   @Input() id: number;
   @Input() header: string;
   @Input() body: string;
 
 
-  constructor (private houseService: HouseService,
-               private snackBar: MatSnackBar,
+  constructor (private snackBar: MatSnackBar,
                public dialog: MatDialog) {}
 
 
