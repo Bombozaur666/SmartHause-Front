@@ -1,0 +1,28 @@
+<mat-card>
+    <div *ngIf="!producer; else loaded">Please select Device.</div>
+</mat-card>
+
+<ng-template #loaded>
+    <mat-card-title class="header-card "> {{ producer.name | uppercase }} </mat-card-title>
+    
+    <mat-card-content>
+        <p class="list-group-item-text">Website: {{ producer.website }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button 
+            mat-raised-button color="primary" 
+            [routerLink]="['./edit']"
+            matTooltip="Edit this house."
+            aria-label="Edit this house button.">
+                Edit
+        </button>
+        <button 
+        mat-raised-button color="primary" 
+        [routerLink]="['./devices']"
+        matTooltip="Show devices in this house."
+        aria-label="Show devices in this house button.">
+            Edit
+    </button>
+    </mat-card-actions>
+</ng-template>

@@ -5,6 +5,8 @@ import { inject } from '@angular/core';
 import { Observable } from "rxjs";
 import { House } from "./models/house.model";
 import { HouseService } from "./houses/house.service";
+import { Producer } from "./models/producer.model";
+import { ProducersService } from "./producers/producers.service";
 
 export const fetchDevicesResolver: ResolveFn<Device[]> = (
     route:ActivatedRouteSnapshot,
@@ -17,3 +19,9 @@ export const fetchHouseResolver: ResolveFn<House[]> = (
     state: RouterStateSnapshot): Observable<House[]> => {
         return inject(HouseService).fetchHouses();
     }
+
+export const fetchProducerResolver: ResolveFn<Producer[]> = (
+    route:ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<Producer[]> => {
+        return inject(ProducersService).fetchProducers();
+    }    

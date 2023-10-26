@@ -1,16 +1,14 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { House } from 'src/app/models/house.model';
-import { HouseService } from '../../house.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-house-item',
+  selector: 'app-producers-item',
   templateUrl: '../../../shared/element-item/element-item.component.html',
   styleUrls: ['../../../shared/element-item/element-item.component.css']
 })
-export class HouseItemComponent {
+export class ProducersItemComponent {
   private subscription: Subscription = Subscription.EMPTY;
   @Input() id: number;
   @Input() header: string;

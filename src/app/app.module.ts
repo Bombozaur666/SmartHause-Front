@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { DevicesComponent } from './devices/devices.component';
 import { HousesComponent } from './houses/houses.component';
-import { ProducentsComponent } from './producents/producents.component';
+import { ProducentsComponent } from './producers/producents.component';
 import { DevicesListComponent } from './devices/devices-list/devices-list.component';
 import { ResultsComponent } from './devices/results/results.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -43,6 +43,11 @@ import { HouseService } from './houses/house.service';
 import { HousesDetailComponent } from './houses/houses-detail/houses-detail.component';
 import { HousesEditComponent } from './houses/houses-edit/houses-edit.component';
 import { DeviceEditComponent } from './devices/device-edit/device-edit.component';
+import { ProducersListComponent } from './producers/producers-list/producers-list.component';
+import { ProducersItemComponent } from './producers/producers-list/producers-item/producers-item.component';
+import { ProducerEditComponent } from './producers/producer-edit/producer-edit.component';
+import { ProducerDetailComponent } from './producers/producer-detail/producer-detail.component';
+import { ProducersService } from './producers/producers.service';
 
 
 @NgModule({
@@ -65,7 +70,11 @@ import { DeviceEditComponent } from './devices/device-edit/device-edit.component
     HouseItemComponent,
     HousesDetailComponent,
     HousesEditComponent,
-    DeviceEditComponent
+    DeviceEditComponent,
+    ProducersListComponent,
+    ProducersItemComponent,
+    ProducerEditComponent,
+    ProducerDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +98,7 @@ import { DeviceEditComponent } from './devices/device-edit/device-edit.component
     HouseService,
     HttpClientModule, 
     ResultService,
+    ProducersService,
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 3000}}
   ],
   bootstrap: [AppComponent]
