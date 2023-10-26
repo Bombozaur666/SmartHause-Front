@@ -6,22 +6,24 @@
     routerLinkActive="active"
     class="list-group-item clearfix">
     <mat-card-header>
-      {{ header }}
+      <h3>{{ header }}</h3>
     </mat-card-header>
     <mat-card-content>
       {{ body }}
     </mat-card-content>
     </a>
     
-    <div class="icon-group">
+    <div class="icon-btn-group">
       <mat-icon 
+      (click)="onRemove()"
+      class="icon-btn"
       matTooltip="Remove device"
-      aria-label="Remove device button"
-      (click)="onRemove()">
+      aria-label="Remove device button">
       delete
       </mat-icon>
       <mat-icon 
       (click)="onEdit()"
+      class="icon-btn"
       matTooltip="Edit device"
       aria-label="Edit device button">
       edit

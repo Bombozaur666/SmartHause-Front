@@ -4,7 +4,7 @@
     justify-content: space-between;
 }
 
-.icon-group {
+.icon-btn-group {
     margin: 0;
     position: absolute;
     justify-content: flex-end;
@@ -17,4 +17,8 @@
 .card {
     margin-bottom: 10px; 
     color: white;
+}
+
+.icon-btn:hover {
+    color: chartreuse;
 }
