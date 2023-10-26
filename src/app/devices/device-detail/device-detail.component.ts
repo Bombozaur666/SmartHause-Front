@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Device } from 'src/app/models/device.model';
 import { DeviceService } from '../device.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-device-detail',
-  templateUrl: './device-detail.component.html'
+  templateUrl: './device-detail.component.html',
+  styleUrls: ['device-detail.component.css']
 })
 export class DeviceDetailComponent implements OnInit {
   protected device: Device;

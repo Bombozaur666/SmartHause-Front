@@ -37,6 +37,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ResultsGroupTemperatureComponent } from './devices/results/results-group-temperature/results-group-temperature.component';
 import { ResultsGroupHumidityComponent } from './devices/results/results-group-humidity/results-group-humidity.component';
 import { AlertDialogComponent } from './devices/devices-list/device-item/alert-dialog/alert-dialog.component';
+import { HousesListComponent } from './houses/houses-list/houses-list.component';
+import { HouseItemComponent } from './houses/houses-list/house-item/house-item.component';
+import { HouseService } from './houses/house.service';
+import { HousesDetailComponent } from './houses/houses-detail/houses-detail.component';
 
 
 @NgModule({
@@ -54,7 +58,10 @@ import { AlertDialogComponent } from './devices/devices-list/device-item/alert-d
     DeviceNewComponent,
     ResultsGroupHumidityComponent,
     ResultsGroupTemperatureComponent,
-    AlertDialogComponent
+    AlertDialogComponent,
+    HousesListComponent,
+    HouseItemComponent,
+    HousesDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +81,8 @@ import { AlertDialogComponent } from './devices/devices-list/device-item/alert-d
     MatDialogModule,
   ],
   providers: [
-    DeviceService, 
+    DeviceService,
+    HouseService,
     HttpClientModule, 
     ResultService,
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 3000}}

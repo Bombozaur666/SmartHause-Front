@@ -1,0 +1,25 @@
+<mat-card>
+    <div *ngIf="!house; else loaded">Please select Device.</div>
+</mat-card>
+
+<ng-template #loaded>
+    <mat-card-title> {{ house.name | uppercase }} </mat-card-title>
+    
+    <mat-card-content>
+        <p class="list-group-item-text">City: {{ house.address.city.name }}</p>
+        <p class="list-group-item-text">Street: {{ house.address.street }}</p>
+        <p class="list-group-item-text">Street: {{ house.address.zip_code }}</p>
+        <p class="list-group-item-text">Street: {{ house.address.house_number }}</p>
+        <p class="list-group-item-text">Street: {{ house.address.flat_number }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button 
+            mat-raised-button color="primary" 
+            [routerLink]="['./edit']"
+            matTooltip="Edit this house."
+            aria-label="Edit this house button.">
+                Edit
+        </button>
+    </mat-card-actions>
+</ng-template>

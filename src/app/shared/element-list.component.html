@@ -3,7 +3,7 @@
     <button 
       mat-raised-button 
       color="primary" 
-      (click)="onNewDevice()"
+      (click)="onNewElement()"
       matTooltip="Add new device"
       aria-label="Add new device button">
       {{addNewButton}}
@@ -12,8 +12,8 @@
     <button 
       mat-raised-button 
       color="primary" 
-      style="float: right;"
       (click)="onRefresh()"
+      style="float: right;"
       matTooltip="Refresh list of devices"
       aria-label="Refresh list of devices button">
         <mat-icon>refresh</mat-icon>
@@ -31,7 +31,9 @@
     <div *ngIf="!isFetching && !error">
       <app-device-item
       *ngFor="let element of elementList"
-      [element]="element"></app-device-item>
+      [id]="element.id"
+      [header]="element.name"
+      [body]="element[bodyEl]"></app-device-item>
     </div>
     <div *ngIf="error">An error occurred.</div>
   </div>

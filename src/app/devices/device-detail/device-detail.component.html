@@ -3,7 +3,7 @@
 </mat-card>
 
 <ng-template #loaded>
-    <mat-card-title> {{ device.name | uppercase }} </mat-card-title>
+    <mat-card-title class="header"> {{ device.name | uppercase }} </mat-card-title>
     
     <mat-card-content>
         <p class="list-group-item-text">Type: {{ device.type }}</p>
@@ -16,10 +16,23 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <button 
-            mat-raised-button color="primary" 
-            [routerLink]="['./results']">
-                Results
-        </button>
+        <div>
+            <button 
+                mat-raised-button 
+                color="primary" 
+                [routerLink]="['./results']"
+                matTooltip="Edit this device."
+                aria-label="Edit this device button.">
+                    Edit
+            </button>
+            <button 
+                mat-raised-button color="primary" 
+                [routerLink]="['./edit']"
+                class="btn-next"
+                matTooltip="Get the results of this device."
+                aria-label="Get the results of this device button.">
+                    Results
+            </button>
+        </div>
     </mat-card-actions>
 </ng-template>

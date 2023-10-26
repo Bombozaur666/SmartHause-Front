@@ -8,21 +8,30 @@ import { DevicesListComponent } from './devices/devices-list/devices-list.compon
 import { ResultsComponent } from './devices/results/results.component';
 import { DeviceDetailComponent } from './devices/device-detail/device-detail.component';
 import { DeviceNewComponent } from './devices/device-new/device-new.component';
-import { fetchDevicesResolver } from './routingResolvers';
+import { HousesListComponent } from './houses/houses-list/houses-list.component';
+import { HouseItemComponent } from './houses/houses-list/house-item/house-item.component';
+
+import { fetchDevicesResolver, fetchHouseResolver } from './routingResolvers';
+import { HousesDetailComponent } from './houses/houses-detail/houses-detail.component';
+
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   {
     path: 'devices', component: DevicesComponent,
     children: [
-      {path: '', component: DevicesListComponent},
+      {path: '', component: DevicesListComponent, resolve: [fetchDevicesResolver]},
       {path: 'new', component: DeviceNewComponent},
       {path: ':id', component: DeviceDetailComponent, resolve: [fetchDevicesResolver]},
       {path: ':id/results', component: ResultsComponent, resolve: [fetchDevicesResolver]},
     ]
   },
 
-  {path: 'houses', component: HousesComponent},
+  {path: 'houses', component: HousesComponent,
+  children: [
+    {path: '', component: HousesListComponent, resolve: [fetchHouseResolver]},
+    {path: ':id', component: HousesDetailComponent, resolve: [fetchHouseResolver]},
+  ]},
   {path: 'producents', component: ProducentsComponent}
 ];
 

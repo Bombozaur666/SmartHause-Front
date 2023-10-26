@@ -1,25 +1,25 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DeviceService } from '../device.service';
-import { Device } from 'src/app/models/device.model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { House } from 'src/app/models/house.model';
+import { HouseService } from '../house.service';
 
 @Component({
-  selector: 'app-devices-list',
+  selector: 'app-houses-list',
   templateUrl: '../../shared/element-list.component.html'
 })
-export class DevicesListComponent implements OnInit, OnDestroy{
-  protected readonly addNewButton: string = 'New Device';
-  protected elementList: Device[] = [];
+export class HousesListComponent implements OnInit, OnDestroy{
+  protected readonly addNewButton: string = 'New House';
+  protected elementList: House[] = [];
   private subscriptionFetch: Subscription = Subscription.EMPTY;
-  private subscriptionDevice: Subscription = Subscription.EMPTY;
+  private subscriptionHouse: Subscription = Subscription.EMPTY;
   protected error: string|null = null;
   protected isFetching:boolean = false;
-  protected readonly bodyEl: string = 'type';
+  protected readonly bodyEl: string|null = null;
 
   
 
-  constructor(private dev: DeviceService,
+  constructor(private houseService: HouseService,
               private router: Router,
               private route: ActivatedRoute) {}
 
@@ -28,7 +28,7 @@ export class DevicesListComponent implements OnInit, OnDestroy{
   }
   onFetch() {
     this.isFetching=true;
-    this.subscriptionDevice = this.dev.devicesChanged.subscribe(
+    this.subscriptionHouse = this.houseService.housesChanged.subscribe(
       {
         next: data => {
           this.elementList = data;
@@ -36,10 +36,10 @@ export class DevicesListComponent implements OnInit, OnDestroy{
       }
     );
     
-    this.subscriptionFetch = this.dev.fetchDevices().subscribe(
+    this.subscriptionFetch = this.houseService.fetchHouses().subscribe(
       {
         next: () => {
-          this.elementList = this.dev.getDevices();
+          this.elementList = this.houseService.getHouses();
           this.isFetching = false;
         }, 
         error: error => {
@@ -60,6 +60,6 @@ export class DevicesListComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.subscriptionFetch.unsubscribe();
-    this.subscriptionDevice.unsubscribe();
+    this.subscriptionHouse.unsubscribe();
   }
 }

@@ -15,18 +15,20 @@ export class DeviceItemComponent implements OnDestroy{
   private subscription: Subscription = Subscription.EMPTY;
   private positiveRemoveMessage: string = 'Device has been succesfully removed';
   private initialErrorMessage: string = 'An error occured: \n';
-  @Input() element: Device;
+  @Input() id: number;
+  @Input() header: string;
+  @Input() body: string;
 
   constructor (private dev: DeviceService,
                private snackBar: MatSnackBar,
                public dialog: MatDialog) {}
 
 
-  onRemove(id: number): void {
-    this.subscription = this.dev.removeDevice(id)
+  onRemove(): void {
+    this.subscription = this.dev.removeDevice(this.id)
     .subscribe({
       next: () => {
-          this.dev.removeDeviceFromArray(id);
+          this.dev.removeDeviceFromArray(this.id);
           this.openSnackBar(this.positiveRemoveMessage);
       },
       error: error => {
@@ -52,8 +54,8 @@ export class DeviceItemComponent implements OnDestroy{
     this.snackBar.open(message);
   }
 
-  onEdit(id:  number): void {
-    console.log('edit' + id);
+  onEdit(): void {
+    console.log('edit' + this.id);
   }
 
   ngOnDestroy(): void {
