@@ -48,6 +48,7 @@ import { ProducersItemComponent } from './producers/producers-list/producers-ite
 import { ProducerEditComponent } from './producers/producer-edit/producer-edit.component';
 import { ProducerDetailComponent } from './producers/producer-detail/producer-detail.component';
 import { ProducersService } from './producers/producers.service';
+import { ProducerDevicesComponent } from './producers/producer-devices/producer-devices.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { ProducersService } from './producers/producers.service';
     ProducersListComponent,
     ProducersItemComponent,
     ProducerEditComponent,
-    ProducerDetailComponent
+    ProducerDetailComponent,
+    ProducerDevicesComponent
   ],
   imports: [
     BrowserModule,

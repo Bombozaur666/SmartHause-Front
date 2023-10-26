@@ -17,6 +17,7 @@ import { ProducerDetailComponent } from './producers/producer-detail/producer-de
 import { ProducerEditComponent } from './producers/producer-edit/producer-edit.component';
 
 import { fetchDevicesResolver, fetchHouseResolver, fetchProducerResolver } from './routingResolvers';
+import { ProducerDevicesComponent } from './producers/producer-devices/producer-devices.component';
 
 
 
@@ -44,6 +45,7 @@ const routes: Routes = [
     {path: '', component: ProducersListComponent, resolve: [fetchProducerResolver]},
     {path: ':id', component: ProducerDetailComponent, resolve: [fetchProducerResolver]},
     {path: ':id/edit', component: ProducerEditComponent, resolve: [fetchProducerResolver]},
+    {path: ':id/devices', component: ProducerDevicesComponent},
   ]},
 
 ];
